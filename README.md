@@ -25,8 +25,8 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/your-username/WordDocumentGenerator.git
-   cd WordDocumentGenerator
+   git clone https://github.com/KruglovEgor/Link-task.git
+   cd Link-task
    ```
 2. Отредактируйте **`resources/config.json`** под себя!
 3. Откройте проект в Visual Studio или выполните сборку из командной строки:
