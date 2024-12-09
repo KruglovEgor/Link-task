@@ -26,9 +26,10 @@ namespace WordDocumentGenerator
                 }
 
                 // Пути к файлам
-                string configPath = Path.Combine(rootDirectory, @"resources\config.json");
+                string configPath = Path.Combine(rootDirectory, @"resources\config.json"); // Файл конфигурации
                 string counterPath = Path.Combine(rootDirectory, @"resources\counter.txt"); // Файл счётчика
 
+                // Проверка доступности конфигурационного файла
                 if (!File.Exists(configPath))
                 {
                     throw new FileNotFoundException($"Конфигурационный файл '{configPath}' не найден.");
@@ -66,7 +67,7 @@ namespace WordDocumentGenerator
                 int documentNumber = GetAndUpdateDocumentNumber(counterPath);
 
                 // Формируем имя файла из DocumentTitle
-                string resultPath = Path.Combine(outDirectory, @$"Документ №{documentNumber}.docx");
+                string resultPath = Path.Combine(outDirectory, $"Документ №{documentNumber}.docx");
 
                 // Создание документа
                 using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(resultPath, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
@@ -82,7 +83,7 @@ namespace WordDocumentGenerator
                     // Добавление таблицы
                     AddTable(body, headers, rows);
 
-                    // Добавление пустых строк
+                    // Добавление трех пустых строк
                     AddEmptyLines(body, 3);
 
                     // Добавление поля для подписи
@@ -128,7 +129,8 @@ namespace WordDocumentGenerator
 
             return currentNumber; // Возвращаем текущий номер
         }
-
+        
+        // Функция добавления названия документа
         static void AddTitle(Body body, string title)
         {
             Paragraph paragraph = new Paragraph(
