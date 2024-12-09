@@ -1,0 +1,14 @@
+bin/
+obj/
+*.user
+*.suo
+*.log
+*.tmp
+*.pdb
+*.cache
+*.db
+.DS_Store
+.vs/
+.idea/
+out/
+resources/counter.txt
